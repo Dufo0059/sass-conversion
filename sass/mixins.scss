@@ -1,0 +1,53 @@
+@mixin nav($width1, $width2) {
+    position: static;
+    clear: both;
+    width: 100%;
+    padding: 0;
+    > ul > li {
+        width: 20%;
+        float: left;
+        @if $width1 >=900px {
+            background-color: $white;
+        }
+        > a {
+            @if $width1 < 1400 {
+                font-size: 1rem;
+            }
+            @else {
+                font-size: 1.414rem;
+            }
+            line-height: 2rem;
+            @if $width1==700px {
+                min-height: 6rem;
+            }
+            @else {
+                min-height: 2rem;
+            }
+            border: none;
+            border-left: 1px solid $light-grey;
+            background-color: $white;
+            @if $width1==700px {
+                &:last-child {
+                    border-right: 1px solid $light-grey;
+                }
+            }
+            @ else {
+                &:first-child a {
+                    border-left: none;
+                }
+            }
+        }
+    }
+}
+
+@mixin header($width1, $width2) {
+    width: $width1;
+    margin: 0 auto;
+    @if $width1==700px {
+        min-height: 8rem;
+    }
+    &:before,
+    &:after {
+        width: $width2;
+    }
+}
